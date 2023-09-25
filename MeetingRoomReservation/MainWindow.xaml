@@ -36,13 +36,13 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Button Content="unreserved" Grid.Row="2" Grid.Column="0" BorderThickness="2" Margin="5"
-                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Name="btnSeat9" Click="seatSelector"></Button>
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Name="btnroom9" Click="roomSelector"></Button>
             <Button Content="unreserved" Grid.Row="2" Grid.Column="1" BorderThickness="2" Margin="5" 
-                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Name="btnSeat10" Click="seatSelector"></Button>
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Name="btnroom10" Click="roomSelector"></Button>
             <Button Content="unreserved" Grid.Row="2" Grid.Column="2" BorderThickness="2" Margin="5"
-                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Name="btnSeat11" Click="seatSelector"></Button>
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Name="btnroom11" Click="roomSelector"></Button>
             <Button Content="unreserved" Grid.Row="2" Grid.Column="3" BorderThickness="2" Margin="5"
-                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Name="btnSeat12" Click="seatSelector"></Button>
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Name="btnroom12" Click="roomSelector"></Button>
             <Label Content="Meeting room 1" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom"></Label>
             <Label Content="Meeting room 2" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom"></Label>
             <Label Content="Meeting room 3" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Bottom"></Label>
@@ -61,8 +61,8 @@
             <Label Grid.Row="0" Grid.Column="0" Content="Customer's Name" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
             <Label Grid.Row="1" Grid.Column="0" Content="Room number" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
             <TextBox Name="tbCustomerName" Grid.Row="0" Grid.Column="1" Margin="5" TextAlignment="Center" VerticalContentAlignment="Center"/>
-            <TextBox Name="tbSeatNumber" Grid.Row="1" Grid.Column="1" Margin="5" TextAlignment="Center" VerticalContentAlignment="Center"/>
-            <Button  Grid.Column="2" Grid.Row="0" Margin="5" Name="btnReserve" Click="reserveSeat">
+            <TextBox Name="tbroomNumber" Grid.Row="1" Grid.Column="1" Margin="5" TextAlignment="Center" VerticalContentAlignment="Center"/>
+            <Button  Grid.Column="2" Grid.Row="0" Margin="5" Name="btnReserve" Click="reserveRoom">
                 <Button.Content>
                     <TextBlock Text="Make a reservation" TextWrapping="Wrap"></TextBlock>
                 </Button.Content>
@@ -97,7 +97,7 @@
             </Button>
             <Button  Grid.Column="2" Grid.Row="0" Margin="5" x:Name="btnLINQ3" Click="linqAction">
                 <Button.Content>
-                    <TextBlock TextWrapping="Wrap" Text="Show Empty Seats (A-Z)"/>
+                    <TextBlock TextWrapping="Wrap" Text="Show Empty Rooms (A-Z)"/>
                 </Button.Content>
             </Button>
             <ListBox x:Name="listBox" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">

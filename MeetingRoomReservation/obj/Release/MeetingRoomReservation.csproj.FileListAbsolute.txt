@@ -1,0 +1,5 @@
+C:\Users\Lexxt\Downloads\meeting_room_reservation\MeetingRoomReservation\obj\Release\MeetingRoomReservation.csproj.SuggestedBindingRedirects.cache
+C:\Users\Lexxt\Downloads\meeting_room_reservation\MeetingRoomReservation\obj\Release\MainWindow.g.cs
+C:\Users\Lexxt\Downloads\meeting_room_reservation\MeetingRoomReservation\obj\Release\App.g.cs
+C:\Users\Lexxt\Downloads\meeting_room_reservation\MeetingRoomReservation\obj\Release\ConcertReservationSystem_MarkupCompile.cache
+C:\Users\Lexxt\Downloads\meeting_room_reservation\MeetingRoomReservation\obj\Release\ConcertReservationSystem_MarkupCompile.lref

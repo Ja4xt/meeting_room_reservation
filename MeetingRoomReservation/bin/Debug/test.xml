@@ -2,8 +2,8 @@
 <ArrayOfSeat xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Seat>
     <seatNumber>1</seatNumber>
-    <seatCustomerName>Pablo</seatCustomerName>
-    <isReserved>true</isReserved>
+    <seatCustomerName />
+    <isReserved>false</isReserved>
   </Seat>
   <Seat>
     <seatNumber>2</seatNumber>

@@ -19,20 +19,20 @@ namespace ConcertReservationSystem
 
         #endregion
         #region methods
-        public void WriteXmlSerializer(Room[] seats)
+        public void WriteXmlSerializer(Room[] rooms)
         {
-            List<Room> seatList = seats.ToList();
+            List<Room> roomList = rooms.ToList();
             XmlSerializer serializer = new XmlSerializer(typeof(List<Room>));
             TextWriter writer = new StreamWriter("test.xml");
-            serializer.Serialize(writer, seatList);
+            serializer.Serialize(writer, roomList);
             writer.Close();
         }
-        public ArrayOfSeat ReadFromXml()
+        public ArrayOfRoom ReadFromXml()
         {
-            XmlSerializer deserializer = new XmlSerializer(typeof(ArrayOfSeat));
+            XmlSerializer deserializer = new XmlSerializer(typeof(ArrayOfRoom));
             TextReader reader = new StreamReader("test.xml");
             object obj = deserializer.Deserialize(reader);
-            ArrayOfSeat XmlData = (ArrayOfSeat)obj;
+            ArrayOfRoom XmlData = (ArrayOfRoom)obj;
             reader.Close();
             return XmlData;
         }

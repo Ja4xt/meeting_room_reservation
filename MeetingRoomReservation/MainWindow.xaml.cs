@@ -22,7 +22,6 @@ namespace ConcertReservationSystem
 
             buttons = new Button[]{btnRoom1,btnRoom2,btnRoom3,btnRoom4,};
         }
-        //pushin P
 
         private void roomSelector(object sender, RoutedEventArgs e)
         {
@@ -45,7 +44,7 @@ namespace ConcertReservationSystem
             }
             if (reserveButtonClicked)
             {
-                ArrayOfSeat room = vm.ReadFromXml();
+                ArrayOfRoom room = vm.ReadFromXml();
                 rooms = room.rooms.ToArray();
             }
             reserveButtonClicked = true;
@@ -60,7 +59,7 @@ namespace ConcertReservationSystem
                     //if value of room number is not number than messagebox will show message
                     try
                     {
-                        roomNumber = int.Parse(tbSeatNumber.Text);
+                        roomNumber = int.Parse(tbRoomNumber.Text);
                         rooms[roomNumber - 1].roomNumber = roomNumber;
                         rooms[roomNumber - 1].roomCustomerName = tbCustomerName.Text;
                         //if room is already reserved messagebox will show message
@@ -70,8 +69,8 @@ namespace ConcertReservationSystem
                         }
                         else
                         {
-                            //buttons[seatNumber - 1].Content = rooms[roomNumber - 1].seatCustomerName;
-                            //buttons[seatNumber - 1].Background = new SolidColorBrush(Color.FromRgb(66, 135, 245));
+                            //buttons[roomNumber - 1].Content = rooms[roomNumber - 1].roomCustomerName;
+                            //buttons[roomNumber - 1].Background = new SolidColorBrush(Color.FromRgb(66, 135, 245));
                             rooms[roomNumber - 1].isReserved = true;
                             totalReservedRooms++;
                         }
@@ -102,7 +101,7 @@ namespace ConcertReservationSystem
             {
                 if (rooms[i].isReserved)
                 {
-                    buttons[seats[i].roomNumber - 1].Content = rooms[rooms[i].roomNumber - 1].roomCustomerName;
+                    buttons[rooms[i].roomNumber - 1].Content = rooms[rooms[i].roomNumber - 1].roomCustomerName;
                     buttons[rooms[i].Number - 1].Background = new SolidColorBrush(Color.FromRgb(66, 135, 245));
                 }
                 else
@@ -127,13 +126,13 @@ namespace ConcertReservationSystem
                     //if value of room number is not number than messagebox will show message
                     try
                     {
-                        int seatNumber = int.Parse(tbSeatNumber.Text);
+                        int roomNumber = int.Parse(tbRoomNumber.Text);
 
                         for (int i = 0; i < rooms.Length; i++)
                         {
                             if (rooms[i].roomNumber == roomNumber)
                             {
-                                //if the seat is already empty messagebox will show message
+                                //if the room is already empty messagebox will show message
                                 if (rooms[i].isReserved)
                                 {
                                     //buttons[i].Content = "unreserved";
@@ -199,7 +198,7 @@ namespace ConcertReservationSystem
                                 totalReservedRooms--;
                                 isRoomExistWithName = true;
                                 tbCustomerName.Text = "";
-                                tbSeatNumber.Text = "";
+                                tbRoomNumber.Text = "";
                             }
                         }
                     }
@@ -220,7 +219,7 @@ namespace ConcertReservationSystem
 
         private void cancelAllReservations(object sender, RoutedEventArgs e)
         {
-            ArrayOfSeat room = vm.ReadFromXml();
+            ArrayOfRoom room = vm.ReadFromXml();
             Room[] rooms = room.rooms.ToArray();
             if (totalReservedRooms > 0)
             {
@@ -249,7 +248,7 @@ namespace ConcertReservationSystem
 
         private void linqAction(object sender, RoutedEventArgs e)
         {
-            ArrayOfSeat room = vm.ReadFromXml();
+            ArrayOfRoom room = vm.ReadFromXml();
             Room[] rooms = room.rooms.ToArray();
            
             //linqButtonNames 
@@ -262,7 +261,7 @@ namespace ConcertReservationSystem
             if (button.Name == buttons[0])
             {
 
-                var RoomNames = rooms.Where(x => x.isReserved == true).Select(x => x.seatCustomerName).OrderByDescending(x => x).ToList();//from room in rooms where room.isReserved=true select room.roomCustomerName;
+                var RoomNames = rooms.Where(x => x.isReserved == true).Select(x => x.roomCustomerName).OrderByDescending(x => x).ToList();//from room in rooms where room.isReserved=true select room.roomCustomerName;
                 for (int i = 0; i < RoomNames.Count; i++)
                 {
                     listBox.Items.Add(RoomNames[i]);
@@ -270,7 +269,7 @@ namespace ConcertReservationSystem
             }
             else if (button.Name== buttons[1])
             {
-                var RoomNames = rooms.Where(x => x.isReserved == true).Select(x => x.seatCustomerName).OrderBy(x => x.Length).ToList();
+                var RoomNames = rooms.Where(x => x.isReserved == true).Select(x => x.roomCustomerName).OrderBy(x => x.Length).ToList();
                 for (int i = 0; i < RoomNames.Count; i++)
                 {
                     listBox.Items.Add(RoomNames[i]);
@@ -278,7 +277,7 @@ namespace ConcertReservationSystem
             }
             else
             {
-                var RoomNames = rooms.Where(x => x.isReserved == false).Select(x => x.seatNumber).OrderBy(x => x).ToList();
+                var RoomNames = rooms.Where(x => x.isReserved == false).Select(x => x.roomNumber).OrderBy(x => x).ToList();
                 for (int i = 0; i < RoomNames.Count; i++)
                 {
                     listBox.Items.Add(RoomNames[i]);
